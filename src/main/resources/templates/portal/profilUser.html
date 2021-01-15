@@ -1,0 +1,195 @@
+<!doctype html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" layout:decorate="~{component/section-portal}">
+<head>
+    <link th:href="@{/assets/plugins/custom/datatables/datatables.bundle.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-9 subheader-transparent" id="kt_subheader">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-1">
+                <!--begin::Heading-->
+                <div class="d-flex flex-column">
+                    <!--begin::Title-->
+                    <h1 class="text-white font-weight-bold my-2 mr-5">Profil</h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Heading-->
+            </div>
+            <!--end::Info-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <!--begin::Dashboard-->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Profil Anda</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Nama:</label>
+                                <input type="nama" class="form-control form-control-solid"
+                                       value="Patuh Pajak"/>
+                            </div>
+                            <div class="form-group">
+                                <label>NPWP:</label>
+                                <input type="npwp" class="form-control form-control-solid"
+                                       value="10.202.303.4-505.000"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input type="email" class="form-control form-control-solid"
+                                       value="pp@patuhpajak.com"/>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="reset" class="btn btn-success mr-2">Simpan</button>
+                            <button type="reset" class="btn btn-secondary">Batal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Perekam Anda</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!--begin: Datatable-->
+                            <div class="table-responsive">
+                                <table class="table rounded" id="datatable-perekam">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-white">No</th>
+                                        <th class="text-white">Layanan</th>
+                                        <th class="text-white">Username</th>
+                                        <th class="text-white">Pilihan</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Faktur</td>
+                                        <td>perekam1</td>
+                                        <td>
+                                            <button class="btn btn-warning mr-2">Ubah</button>
+                                            <button class="btn btn-danger">Hapus</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="reset" class="btn btn-success mr-2">Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Anggota Anda</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!--begin: Datatable-->
+                            <div class="table-responsive">
+                                <table class="table rounded" id="datatable-anggota">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-white">No</th>
+                                        <th class="text-white">NPWP</th>
+                                        <th class="text-white">Nama</th>
+                                        <th class="text-white">Pilihan</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>88.888.888.8-888.000</td>
+                                        <td>Anggota 1</td>
+                                        <td>
+                                            <button class="btn btn-danger">Hapus</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="reset" class="btn btn-success mr-2">Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::Dashboard-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+
+<div layout:fragment="js-page" th:remove="tag">
+    <script th:src="@{/assets/plugins/custom/datatables/datatables.bundle.js}"></script>
+    <script>
+        var table1 = $('#datatable-anggota');
+
+        // begin first table
+        table1.DataTable({
+            responsive: true,
+
+            // DOM Layout settings
+            dom: "<'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
+
+            lengthMenu: [5, 10, 25, 50],
+
+            pageLength: 10,
+
+            language: {
+                'lengthMenu': 'Display _MENU_',
+            },
+
+            columnDefs: [],
+        });
+
+        var table2 = $('#datatable-perekam');
+
+        // begin first table
+        table2.DataTable({
+            responsive: true,
+
+            // DOM Layout settings
+            dom: "<'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
+
+            lengthMenu: [5, 10, 25, 50],
+
+            pageLength: 10,
+
+            language: {
+                'lengthMenu': 'Display _MENU_',
+            },
+
+            columnDefs: [],
+        });
+    </script>
+</div>
+<!--end::Page Scripts-->
+</body>
+</html>

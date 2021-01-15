@@ -1,0 +1,137 @@
+<!doctype html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" layout:decorate="~{component/section-admin}">
+<head>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-9 subheader-transparent" id="kt_subheader">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-1">
+                <!--begin::Heading-->
+                <div class="d-flex flex-column">
+                    <!--begin::Title-->
+                    <h1 class="text-white font-weight-bold my-2 mr-5">Manage Website</h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Heading-->
+            </div>
+            <!--end::Info-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <!--begin::Dashboard-->
+            <div class="row">
+                <div class="col-xl-12">
+                    <!--begin::Charts Widget 3-->
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-body">
+                            <ul class="nav nav-success nav-pills nav-fill p-3 my-6" id="tab-manage-web" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="layanan-tab" th:href="@{/admin/manage-web/layanan}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'layanan') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Layanan</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="paket-tab" th:href="@{/admin/manage-web/paket}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'paket') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Paket</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="patner-tab" th:href="@{/admin/manage-web/patner}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'patner') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Patner</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="banner-tab" th:href="@{/admin/manage-web/banner}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'banner') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Banner</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="faq-tab" th:href="@{/admin/manage-web/faq}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'faq') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">FAQ</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="runtext-tab" th:href="@{/admin/manage-web/runtext}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'runtext') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Running&nbsp;Text</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="info-tab" th:href="@{/admin/manage-web/info}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'info') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Informasi</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="aboutus-tab" th:href="@{/admin/manage-web/aboutus}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'aboutus') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Tentang Kami</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="fitur-tab" th:href="@{/admin/manage-web/fitur}"
+                                       th:classappend="${#strings.contains(#request.requestURI, 'fitur') ? 'active' : ''}">
+                                        <span class="nav-icon">
+                                            <i class="flaticon2-layers-1"></i>
+                                        </span>
+                                        <span class="nav-text">Fitur</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="separator separator-solid separator-border-2 separator-light mb-6"></div>
+                            <div layout:fragment="part"></div>
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Charts Widget 3-->
+                </div>
+            </div>
+            <!--end::Dashboard-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+
+<div layout:fragment="js-page" th:remove="tag">
+    <div layout:fragment="js-page-content"></div>
+</div>
+</body>
+</html>

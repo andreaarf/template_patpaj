@@ -1,0 +1,439 @@
+<!doctype html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" layout:decorate="~{component/section-portal}">
+<head></head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!--begin::Subheader-->
+    <div class="subheader py-2 py-lg-9 subheader-transparent" id="kt_subheader">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <!--begin::Info-->
+            <div class="d-flex align-items-center flex-wrap mr-1">
+                <!--begin::Heading-->
+                <div class="d-flex flex-column">
+                    <!--begin::Title-->
+                    <h1 class="text-white font-weight-bold my-2 mr-5">Dashboard</h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Heading-->
+            </div>
+            <!--end::Info-->
+        </div>
+    </div>
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <!--begin::Dashboard-->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Layanan Anda</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-3">
+                                    <a th:href="@{/}"
+                                       class="d-flex flex-column align-items-center justify-content-center pr-2 mb-6">
+                                        <div class="symbol symbol-150 mb-2">
+                                                <span class="symbol-label bg-light-light">
+                                                    <img th:src="@{/assets/media/images/faktur.png}"
+                                                         class="w-75 h-auto align-self-center"
+                                                         alt="Logos"/>
+                                                </span>
+                                        </div>
+                                        <h5 class="text-dark">Faktur</h5>
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <a th:href="@{/}"
+                                       class="d-flex flex-column align-items-center justify-content-center pr-2 mb-6">
+                                        <div class="symbol symbol-150 mb-2">
+                                                <span class="symbol-label bg-light-light">
+                                                    <img th:src="@{/assets/media/images/filing.png}"
+                                                         class="w-75 h-auto align-self-center"
+                                                         alt="Logos"/>
+                                                </span>
+                                        </div>
+                                        <h5 class="text-dark">Filing</h5>
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <a th:href="@{/}"
+                                       class="d-flex flex-column align-items-center justify-content-center pr-2 mb-6">
+                                        <div class="symbol symbol-150 mb-2">
+                                                <span class="symbol-label bg-light-light">
+                                                    <img th:src="@{/assets/media/images/billing.png}"
+                                                         class="w-75 h-auto align-self-center"
+                                                         alt="Logos"/>
+                                                </span>
+                                        </div>
+                                        <h5 class="text-dark">Billing</h5>
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <a th:href="@{/}"
+                                       class="d-flex flex-column align-items-center justify-content-center pr-2 mb-6">
+                                        <div class="symbol symbol-150 mb-2">
+                                                <span class="symbol-label bg-light-light">
+                                                    <img th:src="@{/assets/media/images/buktipotong.png}"
+                                                         class="w-75 h-auto align-self-center"
+                                                         alt="Logos"/>
+                                                </span>
+                                        </div>
+                                        <h5 class="text-dark">Bukti Potong</h5>
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <a th:href="@{/}"
+                                       class="d-flex flex-column align-items-center justify-content-center pr-2 mb-6">
+                                        <div class="symbol symbol-150 mb-2">
+                                                <span class="symbol-label bg-light-light">
+                                                    <img th:src="@{/assets/media/images/spt.png}"
+                                                         class="w-75 h-auto align-self-center"
+                                                         alt="Logos"/>
+                                                </span>
+                                        </div>
+                                        <h5 class="text-dark">SPT</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6">
+                    <!--begin::Charts Widget 3-->
+                    <div class="card card-custom card-stretch gutter-b">
+                        <!--begin::Header-->
+                        <div class="card-header h-auto border-0">
+                            <div class="card-title">
+                                <h3 class="card-label">
+                                    <span class="d-block text-dark font-weight-bolder">Jumlah Transaksi Anda</span>
+                                    <span class="d-block text-muted mt-2 font-size-sm">Perbulan</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <div id="kt_charts_widget_3_chart"></div>
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Charts Widget 3-->
+                </div>
+
+                <div class="col-xl-6">
+                    <!--begin::Charts Widget 2-->
+                    <div class="card card-custom bg-gray-100 card-stretch gutter-b">
+                        <!--begin::Header-->
+                        <div class="card-header h-auto border-0">
+                            <!--begin::Title-->
+                            <div class="card-title">
+                                <h3 class="card-label">
+                                    <span class="d-block text-dark font-weight-bolder">Penggunaan Layanan</span>
+                                    <span class="d-block text-dark-50 mt-2 font-size-sm">Perbulan</span>
+                                </h3>
+                            </div>
+                            <!--end::Title-->
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <!--begin::Chart-->
+                            <div id="kt_charts_widget_2_chart"></div>
+                            <!--end::Chart-->
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Charts Widget 2-->
+                </div>
+            </div>
+            <!--end::Dashboard-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+
+<div layout:fragment="js-page" th:remove="tag">
+    <script>
+        var KTWidgets = function () {
+            var _initChartsWidget3 = function () {
+                var element = document.getElementById("kt_charts_widget_3_chart");
+
+                if (!element) {
+                    return;
+                }
+
+                var options = {
+                    series: [{
+                        name: 'Transaksi',
+                        data: [30, 40, 40, 90, 90, 70, 70]
+                    }],
+                    chart: {
+                        type: 'area',
+                        height: 250,
+                        toolbar: {
+                            show: false
+                        }
+                    },
+                    plotOptions: {},
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    fill: {
+                        type: 'solid',
+                        opacity: 1
+                    },
+                    stroke: {
+                        curve: 'smooth',
+                        show: true,
+                        width: 3,
+                        colors: [KTApp.getSettings()['colors']['theme']['base']['success']]
+                    },
+                    xaxis: {
+                        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        labels: {
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        },
+                        crosshairs: {
+                            position: 'front',
+                            stroke: {
+                                color: KTApp.getSettings()['colors']['theme']['base']['success'],
+                                width: 1,
+                                dashArray: 3
+                            }
+                        },
+                        tooltip: {
+                            enabled: true,
+                            formatter: undefined,
+                            offsetY: 0,
+                            style: {
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    states: {
+                        normal: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        hover: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        active: {
+                            allowMultipleDataPointsSelection: false,
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        }
+                    },
+                    tooltip: {
+                        style: {
+                            fontSize: '12px',
+                            fontFamily: KTApp.getSettings()['font-family']
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return val + " Transaksi"
+                            }
+                        }
+                    },
+                    colors: [KTApp.getSettings()['colors']['theme']['light']['success']],
+                    grid: {
+                        borderColor: KTApp.getSettings()['colors']['gray']['gray-200'],
+                        strokeDashArray: 4,
+                        yaxis: {
+                            lines: {
+                                show: true
+                            }
+                        }
+                    },
+                    markers: {
+                        //size: 5,
+                        //colors: [KTApp.getSettings()['colors']['theme']['light']['danger']],
+                        strokeColor: KTApp.getSettings()['colors']['theme']['base']['success'],
+                        strokeWidth: 3
+                    }
+                };
+
+                var chart = new ApexCharts(element, options);
+                chart.render();
+            };
+
+            var _initChartsWidget2 = function () {
+                var element = document.getElementById("kt_charts_widget_2_chart");
+
+                if (!element) {
+                    return;
+                }
+
+                var options = {
+                    series: [{
+                        name: 'Billing',
+                        data: [44, 55, 57, 56, 61, 58]
+                    }, {
+                        name: 'Faktur',
+                        data: [76, 85, 101, 98, 87, 105]
+                    }, {
+                        name: 'Filing',
+                        data: [16, 25, 41, 34, 26, 39]
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 250,
+                        toolbar: {
+                            show: false
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: ['30%'],
+                            endingShape: 'rounded'
+                        },
+                    },
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        labels: {
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: KTApp.getSettings()['colors']['gray']['gray-500'],
+                                fontSize: '12px',
+                                fontFamily: KTApp.getSettings()['font-family']
+                            }
+                        }
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    states: {
+                        normal: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        hover: {
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        },
+                        active: {
+                            allowMultipleDataPointsSelection: false,
+                            filter: {
+                                type: 'none',
+                                value: 0
+                            }
+                        }
+                    },
+                    tooltip: {
+                        style: {
+                            fontSize: '12px',
+                            fontFamily: KTApp.getSettings()['font-family']
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return val + " Akses"
+                            }
+                        }
+                    },
+                    colors: [KTApp.getSettings()['colors']['theme']['base']['warning'], KTApp.getSettings()['colors']['theme']['base']['dark'], KTApp.getSettings()['colors']['theme']['base']['info']],
+                    grid: {
+                        borderColor: KTApp.getSettings()['colors']['gray']['gray-200'],
+                        strokeDashArray: 4,
+                        yaxis: {
+                            lines: {
+                                show: true
+                            }
+                        }
+                    }
+                };
+
+                var chart = new ApexCharts(element, options);
+                chart.render();
+            };
+
+            return {
+                init: function () {
+                    // General Controls
+                    _initChartsWidget3();
+                    _initChartsWidget2();
+                }
+            }
+        }();
+
+        // Webpack support
+        if (typeof module !== 'undefined') {
+            module.exports = KTWidgets;
+        }
+
+        jQuery(document).ready(function () {
+            KTWidgets.init();
+        });
+    </script>
+</div>
+</body>
+</html>

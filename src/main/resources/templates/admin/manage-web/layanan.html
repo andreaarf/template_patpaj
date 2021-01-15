@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" layout:decorate="~{admin/manage-web/menu-manage-web}">
+<head>
+</head>
+<body>
+<div layout:fragment="part" th:remove="tag">
+    <h1>Layanan</h1>
+    <a href="#" class="btn btn-primary btn-shadow font-weight-bold mt-6">Tambah</a>
+    <div class="separator separator-solid separator-light pb-6"></div>
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless rounded">
+        <thead>
+            <tr>
+                <th class="w-50px" scope="col">No</th>
+                <th scope="col">Nama Layanan</th>
+                <th class="w-90px" scope="col">Urutan</th>
+                <th class="w-70px" scope="col">Pilihan</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="text-center font-weight-bold">1</td>
+            <td class="font-weight-bold">Efiling</td>
+            <td class="text-center min-w-70px">
+                <select class="form-control form-control-sm" id="order-idcontent">
+                    <option>1</option>
+                </select>
+            </td>
+            <td class="text-center">
+                <div class="dropdown dropdown-inline">
+                    <button type="button" class="btn btn-light-dark btn-icon btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ki ki-bold-more-hor"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Konfigur</a>
+                        <a class="dropdown-item" href="#">Hapus</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <a href="#" class="btn btn-success btn-shadow font-weight-bold mt-6">Simpan</a>
+</div>
+
+<div layout:fragment="js-page-content" th:remove="tag">
+</div>
+</body>
+</html>

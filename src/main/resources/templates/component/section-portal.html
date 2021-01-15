@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" layout:decorate="~{component/layout}">
+
+<head>
+    <style>
+        @media (min-width: 992px) {
+            .header-fixed[data-header-scroll=on] .header {
+                background-color: #ff0000;
+            }
+
+            .header-fixed[data-header-scroll=on] .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-text, .header-fixed[data-header-scroll=on] .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-text, .header-fixed[data-header-scroll=on] .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-text, .header-fixed[data-header-scroll=on] .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-text {
+                color: #7e8299 !important;
+            }
+
+            .header-menu .menu-nav > .menu-item .menu-submenu > .menu-subnav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-icon, .header-menu .menu-nav > .menu-item .menu-submenu > .menu-subnav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-icon {
+                color: #f64e60;
+            }
+
+            .header-menu .menu-nav > .menu-item .menu-submenu > .menu-subnav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-text, .header-menu .menu-nav > .menu-item .menu-submenu > .menu-subnav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-text {
+                color: #f64e60;
+            }
+
+            .header-menu .menu-nav > .menu-item .menu-submenu > .menu-subnav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-icon.svg-icon svg g [fill], .header-menu .menu-nav > .menu-item .menu-submenu > .menu-subnav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-icon.svg-icon svg g [fill] {
+                fill: #f64e60;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .header-menu-mobile .menu-nav > .menu-item.menu-item-here > .menu-heading .menu-text, .header-menu-mobile .menu-nav > .menu-item.menu-item-here > .menu-link .menu-text {
+                color: #f64e60 !important;
+            }
+
+            .header-menu-mobile .menu-nav > .menu-item > .menu-heading .menu-text, .header-menu-mobile .menu-nav > .menu-item > .menu-link .menu-text {
+                color: #3f4254 !important;
+            }
+
+            .header-menu-mobile .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading .menu-text, .header-menu-mobile .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link .menu-text {
+                color: #f64e60;
+            }
+
+            .header-menu-mobile .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading .menu-icon.svg-icon svg g [fill], .header-menu-mobile .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link .menu-icon.svg-icon svg g [fill] {
+                fill: #f64e60;
+            }
+
+            .header-menu-mobile .menu-nav > .menu-item.menu-item-open > .menu-heading .menu-arrow, .header-menu-mobile .menu-nav > .menu-item.menu-item-open > .menu-link .menu-arrow {
+                color: #f64e60;
+            }
+
+            .mobile-carousel img {
+                height: 150px;
+                width: auto !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .mobile-carousel {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+
+        .mobile-carousel .img-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .owl-dots {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body th:with="styleBody='background-image: url(/assets/media/bg/bg-patuh-pajak.jpg)', classBody='quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading'">
+<div layout:fragment="section" th:remove="tag">
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div id="kt_header_mobile" class="header-mobile">
+        <!--begin::Logo-->
+        <a th:href="@{/}" style="background: white; padding: 10px 25px; border-radius: 25px;">
+            <img alt="Logo" th:src="@{/assets/media/logos/logo-patuh-pajak.png}" class="logo-default max-h-30px"/>
+        </a>
+        <!--end::Logo-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <button class="btn p-0 burger-icon burger-icon-left ml-4" id="kt_header_mobile_toggle">
+                <span></span>
+            </button>
+            <div id="kt_quick_user2_toggle" class="btn btn-icon btn-hover-transparent-white p-0 ml-3">
+            <span class="svg-icon svg-icon-xl">
+                <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                     height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24"/>
+                        <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                              fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                        <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                              fill="#000000" fill-rule="nonzero"/>
+                    </g>
+                </svg>
+                <!--end::Svg Icon-->
+            </span>
+            </div>
+        </div>
+        <!--end::Toolbar-->
+    </div>
+    <!--end::Header Mobile-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Header-->
+                <div id="kt_header" class="header header-fixed">
+                    <!--begin::Container-->
+                    <div class="container d-flex align-items-stretch justify-content-between">
+                        <!--begin::Left-->
+                        <div class="d-flex align-items-stretch mr-3">
+                            <!--begin::Header Logo-->
+                            <div class="header-logo">
+                                <a th:href="@{/}" style="background: white; padding: 10px 25px; border-radius: 25px;">
+                                    <img alt="Logo" th:src="@{/assets/media/logos/logo-patuh-pajak.png}"
+                                         class="logo-default max-h-40px"/>
+                                    <img alt="Logo" th:src="@{/assets/media/logos/logo-patuh-pajak.png}"
+                                         class="logo-sticky max-h-40px"/>
+                                </a>
+                            </div>
+                            <!--end::Header Logo-->
+                            <!--begin::Header Menu Wrapper-->
+                            <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+                                <!--begin::Header Menu-->
+                                <div id="kt_header_menu"
+                                     class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
+                                    <!--begin::Header Nav-->
+                                    <ul class="menu-nav">
+                                        <li class="menu-item menu-item-open menu-item-here" aria-haspopup="true">
+                                            <a th:href="@{/dashboard-user}" class="menu-link">
+                                                <span class="menu-text" style="color: #fff;">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item text-white" aria-haspopup="true">
+                                            <a th:href="@{/profil-user}" class="menu-link">
+                                                <span class="menu-text" style="color: #fff;">Profil</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Header Nav-->
+                                </div>
+                                <!--end::Header Menu-->
+                            </div>
+                            <!--end::Header Menu Wrapper-->
+                        </div>
+                        <!--end::Left-->
+                        <!--begin::Topbar-->
+                        <div class="topbar">
+                            <!--begin::User-->
+                            <div class="dropdown">
+                                <!--begin::Toggle-->
+                                <div class="topbar-item">
+                                    <div class="btn btn-icon btn-hover-transparent-white d-flex align-items-center btn-lg px-md-2 w-md-auto"
+                                         id="kt_quick_user_toggle">
+                                        <span class="text-white opacity-70 font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
+                                        <span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">Patuh Pajak</span>
+                                        <span class="symbol symbol-35">
+												<span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">P</span>
+											</span>
+                                    </div>
+                                </div>
+                                <!--end::Toggle-->
+                            </div>
+                            <!--end::User-->
+                        </div>
+                        <!--end::Topbar-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                    <div layout:fragment="content"></div>
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <div class="footer py-4 d-flex flex-column" id="kt_footer" style="background-color: #bf0001">
+                    <!--begin::Container-->
+                    <div class="mt-2 container d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-white font-weight-bold mr-2"><script>document.write(new Date().getFullYear())</script>©</span>
+                            <a href="https://paradigma-matra.id/" target="_blank"
+                               class="text-white text-hover-dark">Paradigma Matra Indonesia</a>
+                        </div>
+                        <!--end::Copyright-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
+    <!--begin::Running Text-->
+    <div class="zindex-5 position-sticky bottom-0 w-100 left-0 right-0 border-top-light border-1 border-top"
+         style="background-color: #bf0001">
+        <div class="px-12 py-1 runtext-container">
+            <marquee behavior="scroll" direction="left">
+                <div class="d-flex flex-row text-white font-weight-bold">
+                    <div class="mr-20"><img class="bg-white p-0 rounded-pill mr-8"
+                                            th:src="@{/assets/media/icon/favicon-16x16.png}" alt="icon"> Ini adalah
+                        pengumuman penting yang harus disampaikan
+                    </div>
+                    <div class="mr-20"><img class="bg-white p-0 rounded-pill mr-8"
+                                            th:src="@{/assets/media/icon/favicon-16x16.png}" alt="icon"> Ini adalah
+                        pengumuman penting yang harus disampaikan
+                    </div>
+                    <div class="mr-20"><img class="bg-white p-0 rounded-pill mr-8"
+                                            th:src="@{/assets/media/icon/favicon-16x16.png}" alt="icon"> Ini adalah
+                        pengumuman penting yang harus disampaikan
+                    </div>
+                </div>
+            </marquee>
+        </div>
+    </div>
+    <!--end::Running Text-->
+    <!-- begin::User Panel-->
+    <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
+        <!--begin::Header-->
+        <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
+            <h3 class="font-weight-bold m-0">Member</h3>
+            <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-danger" id="kt_quick_user_close">
+                <i class="ki ki-close icon-xs text-muted"></i>
+            </a>
+        </div>
+        <!--end::Header-->
+        <!--begin::Content-->
+        <div class="offcanvas-content pr-5 mr-n5">
+            <!--begin::Header-->
+            <div class="d-flex align-items-center mt-5">
+                <div class="symbol symbol-100 mr-5">
+                    <span class="symbol-label font-size-h1-lg">P</span>
+                    <i class="symbol-badge bg-success"></i>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="font-weight-bold font-size-h5 text-dark-75">Patuh Pajak</span>
+                    <div class="text-muted mt-1">Terdaftar: 12-12-2020</div>
+                    <div class="navi mt-2">
+                        <div class="navi-item">
+								<span class="navi-link p-0 pb-2">
+									<span class="navi-icon mr-1">
+										<span class="svg-icon svg-icon-lg svg-icon-warning">
+											<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                 viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"/>
+													<path d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                                          fill="#000000"/>
+													<circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5" r="2.5"/>
+												</g>
+											</svg>
+                                            <!--end::Svg Icon-->
+										</span>
+									</span>
+									<span class="navi-text text-muted">pp@patuhpajak.com</span>
+								</span>
+                        </div>
+                        <a href="/" class="btn btn-sm btn-light-dark font-weight-bolder py-2 px-5">Keluar</a>
+                    </div>
+                </div>
+            </div>
+            <!--end::Header-->
+            <!--begin::Separator-->
+            <div class="separator separator-dashed mt-8 mb-5"></div>
+            <!--end::Separator-->
+            <!--begin::Notifications-->
+            <div>
+                <!--begin:Heading-->
+                <h5 class="mb-5">Aktifitas Terakhir</h5>
+                <!--end:Heading-->
+                <!--begin::Item-->
+                <div class="d-flex align-items-center mb-10">
+                    <!--begin::Bullet-->
+                    <span class="bullet bullet-bar bg-dark align-self-stretch"></span>
+                    <!--end::Bullet-->
+                    <!--begin::Checkbox-->
+                    <span class="svg-icon svg-icon-dark svg-icon-2x m-0 mx-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                         height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                            <path d="M16.7689447,7.81768175 C17.1457787,7.41393107 17.7785676,7.39211077 18.1823183,7.76894473 C18.5860689,8.1457787 18.6078892,8.77856757 18.2310553,9.18231825 L11.2310553,16.6823183 C10.8654446,17.0740439 10.2560456,17.107974 9.84920863,16.7592566 L6.34920863,13.7592566 C5.92988278,13.3998345 5.88132125,12.7685345 6.2407434,12.3492086 C6.60016555,11.9298828 7.23146553,11.8813212 7.65079137,12.2407434 L10.4229928,14.616916 L16.7689447,7.81768175 Z"
+                                  fill="#000000" fill-rule="nonzero"/>
+                        </g>
+                    </svg>
+                </span>
+                    <!--end::Checkbox-->
+                    <!--begin::Text-->
+                    <div class="d-flex flex-column flex-grow-1">
+                        <span class="text-dark-75 font-weight-bold font-size-lg mb-1">Login ke Aplikasi</span>
+                        <span class="text-muted font-weight-bold">2 hari yang lalu</span>
+                    </div>
+                    <!--end::Text-->
+                </div>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <div class="d-flex align-items-center mb-10">
+                    <!--begin::Bullet-->
+                    <span class="bullet bullet-bar bg-dark align-self-stretch"></span>
+                    <!--end::Bullet-->
+                    <!--begin::Checkbox-->
+                    <span class="svg-icon svg-icon-dark svg-icon-2x m-0 mx-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                         height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                            <path d="M16.7689447,7.81768175 C17.1457787,7.41393107 17.7785676,7.39211077 18.1823183,7.76894473 C18.5860689,8.1457787 18.6078892,8.77856757 18.2310553,9.18231825 L11.2310553,16.6823183 C10.8654446,17.0740439 10.2560456,17.107974 9.84920863,16.7592566 L6.34920863,13.7592566 C5.92988278,13.3998345 5.88132125,12.7685345 6.2407434,12.3492086 C6.60016555,11.9298828 7.23146553,11.8813212 7.65079137,12.2407434 L10.4229928,14.616916 L16.7689447,7.81768175 Z"
+                                  fill="#000000" fill-rule="nonzero"/>
+                        </g>
+                    </svg>
+                </span>
+                    <!--end::Checkbox-->
+                    <!--begin::Text-->
+                    <div class="d-flex flex-column flex-grow-1">
+                        <span class="text-dark-75 font-weight-bold font-size-lg mb-1">Menggunakan Aplikasi Billing</span>
+                        <span class="text-muted font-weight-bold">2 hari yang lalu</span>
+                    </div>
+                    <!--end::Text-->
+                </div>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <div class="d-flex align-items-center mb-10">
+                    <!--begin::Bullet-->
+                    <span class="bullet bullet-bar bg-dark align-self-stretch"></span>
+                    <!--end::Bullet-->
+                    <!--begin::Checkbox-->
+                    <span class="svg-icon svg-icon-dark svg-icon-2x m-0 mx-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                         height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                            <path d="M16.7689447,7.81768175 C17.1457787,7.41393107 17.7785676,7.39211077 18.1823183,7.76894473 C18.5860689,8.1457787 18.6078892,8.77856757 18.2310553,9.18231825 L11.2310553,16.6823183 C10.8654446,17.0740439 10.2560456,17.107974 9.84920863,16.7592566 L6.34920863,13.7592566 C5.92988278,13.3998345 5.88132125,12.7685345 6.2407434,12.3492086 C6.60016555,11.9298828 7.23146553,11.8813212 7.65079137,12.2407434 L10.4229928,14.616916 L16.7689447,7.81768175 Z"
+                                  fill="#000000" fill-rule="nonzero"/>
+                        </g>
+                    </svg>
+                </span>
+                    <!--end::Checkbox-->
+                    <!--begin::Text-->
+                    <div class="d-flex flex-column flex-grow-1">
+                        <span class="text-dark-75 font-weight-bold font-size-lg mb-1">Login ke Aplikasi</span>
+                        <span class="text-muted font-weight-bold">2 hari yang lalu</span>
+                    </div>
+                    <!--end::Text-->
+                </div>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <div class="d-flex align-items-center mb-10">
+                    <!--begin::Bullet-->
+                    <span class="bullet bullet-bar bg-dark align-self-stretch"></span>
+                    <!--end::Bullet-->
+                    <!--begin::Checkbox-->
+                    <span class="svg-icon svg-icon-dark svg-icon-2x m-0 mx-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                         height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                            <path d="M16.7689447,7.81768175 C17.1457787,7.41393107 17.7785676,7.39211077 18.1823183,7.76894473 C18.5860689,8.1457787 18.6078892,8.77856757 18.2310553,9.18231825 L11.2310553,16.6823183 C10.8654446,17.0740439 10.2560456,17.107974 9.84920863,16.7592566 L6.34920863,13.7592566 C5.92988278,13.3998345 5.88132125,12.7685345 6.2407434,12.3492086 C6.60016555,11.9298828 7.23146553,11.8813212 7.65079137,12.2407434 L10.4229928,14.616916 L16.7689447,7.81768175 Z"
+                                  fill="#000000" fill-rule="nonzero"/>
+                        </g>
+                    </svg>
+                </span>
+                    <!--end::Checkbox-->
+                    <!--begin::Text-->
+                    <div class="d-flex flex-column flex-grow-1">
+                        <span class="text-dark-75 font-weight-bold font-size-lg mb-1">Menggunakan aplikasi Faktur</span>
+                        <span class="text-muted font-weight-bold">2 hari yang lalu</span>
+                    </div>
+                    <!--end::Text-->
+                </div>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <div class="d-flex align-items-center mb-10">
+                    <!--begin::Bullet-->
+                    <span class="bullet bullet-bar bg-dark align-self-stretch"></span>
+                    <!--end::Bullet-->
+                    <!--begin::Checkbox-->
+                    <span class="svg-icon svg-icon-dark svg-icon-2x m-0 mx-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                         height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                            <path d="M16.7689447,7.81768175 C17.1457787,7.41393107 17.7785676,7.39211077 18.1823183,7.76894473 C18.5860689,8.1457787 18.6078892,8.77856757 18.2310553,9.18231825 L11.2310553,16.6823183 C10.8654446,17.0740439 10.2560456,17.107974 9.84920863,16.7592566 L6.34920863,13.7592566 C5.92988278,13.3998345 5.88132125,12.7685345 6.2407434,12.3492086 C6.60016555,11.9298828 7.23146553,11.8813212 7.65079137,12.2407434 L10.4229928,14.616916 L16.7689447,7.81768175 Z"
+                                  fill="#000000" fill-rule="nonzero"/>
+                        </g>
+                    </svg>
+                </span>
+                    <!--end::Checkbox-->
+                    <!--begin::Text-->
+                    <div class="d-flex flex-column flex-grow-1">
+                        <span class="text-dark-75 font-weight-bold font-size-lg mb-1">Melaporkan SPT Tahunan</span>
+                        <span class="text-muted font-weight-bold">2 hari yang lalu</span>
+                    </div>
+                    <!--end::Text-->
+                </div>
+                <!--end::Item-->
+            </div>
+            <!--end::Notifications-->
+        </div>
+        <!--end::Content-->
+    </div>
+    <!-- end::User Panel-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop bg-danger">
+			<span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                     height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24"/>
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1"/>
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                              fill="#000000" fill-rule="nonzero"/>
+					</g>
+				</svg>
+                <!--end::Svg Icon-->
+			</span>
+    </div>
+    <!--end::Scrolltop-->
+</div>
+<div layout:fragment="js" th:remove="tag">
+    <script>
+        "use strict";
+
+        var KTLayoutQuickUser = function() {
+            // Private properties
+            var _element;
+            var _offcanvasObject;
+
+            // Private functions
+            var _init = function() {
+                var header = KTUtil.find(_element, '.offcanvas-header');
+                var content = KTUtil.find(_element, '.offcanvas-content');
+
+                _offcanvasObject = new KTOffcanvas(_element, {
+                    overlay: true,
+                    baseClass: 'offcanvas',
+                    placement: 'right',
+                    closeBy: 'kt_quick_user_close',
+                    toggleBy: ['kt_quick_user_toggle', 'kt_quick_user2_toggle']
+                });
+
+                KTUtil.scrollInit(content, {
+                    disableForMobile: true,
+                    resetHeightOnDestroy: true,
+                    handleWindowResize: true,
+                    height: function() {
+                        var height = parseInt(KTUtil.getViewPort().height);
+
+                        if (header) {
+                            height = height - parseInt(KTUtil.actualHeight(header));
+                            height = height - parseInt(KTUtil.css(header, 'marginTop'));
+                            height = height - parseInt(KTUtil.css(header, 'marginBottom'));
+                        }
+
+                        if (content) {
+                            height = height - parseInt(KTUtil.css(content, 'marginTop'));
+                            height = height - parseInt(KTUtil.css(content, 'marginBottom'));
+                        }
+
+                        height = height - parseInt(KTUtil.css(_element, 'paddingTop'));
+                        height = height - parseInt(KTUtil.css(_element, 'paddingBottom'));
+
+                        height = height - 2;
+
+                        return height;
+                    }
+                });
+            }
+
+            // Public methods
+            return {
+                init: function(id) {
+                    _element = KTUtil.getById(id);
+
+                    if (!_element) {
+                        return;
+                    }
+
+                    // Initialize
+                    _init();
+                },
+
+                getElement: function() {
+                    return _element;
+                }
+            };
+        }();
+
+        // Webpack support
+        if (typeof module !== 'undefined') {
+            module.exports = KTLayoutQuickUser;
+        }
+
+        // Init Quick User Panel
+        if (typeof KTLayoutQuickUser !== 'undefined') {
+            KTLayoutQuickUser.init('kt_quick_user');
+        }
+    </script>
+
+    <div layout:fragment="js-page"></div>
+</div>
+</body>
+
+</html>
